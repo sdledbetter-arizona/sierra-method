@@ -1,5 +1,6 @@
 description <https://fireforce6.github.io/mission-control/system-analysis/connections#> as connections {
 
+    uses <http://purl.org/dc/elements/1.1/> as dc
 	extends <https://fireforce6.github.io/mission-control/system-analysis/components#> as components
 
 	uses <https://www.modelware.io/sierra/component#> as component
@@ -10,6 +11,7 @@ description <https://fireforce6.github.io/mission-control/system-analysis/connec
     ]
     instance FireSat.Command_In : component:Port [ component:direction "In" ]
     instance FireSat.Telemetry_Out : component:Port [ component:direction "Out" ]
+    instance FireSat.Command_Out : component:Port [ component:direction "Out" ]
 
     ref instance components:Payload [
         component:hasPort Payload.Data_Out
@@ -36,6 +38,22 @@ description <https://fireforce6.github.io/mission-control/system-analysis/connec
     instance Propulsion.Command_In : component:Port [ component:direction "In" ]
     instance Propulsion.Power_In : component:Port [ component:direction "In" ]
 
+    @dc:description "Ports for the Payload Controller, including command input and health output."
+    ref instance components:PayloadController [
+        component:hasPort PayloadController.Command_In
+        component:hasPort PayloadController.Health_Out
+    ]
+    instance PayloadController.Command_In : component:Port [ component:direction "In" ]
+    instance PayloadController.Health_Out : component:Port [ component:direction "Out" ]
+
+    @dc:description "Ports for the Payload Data Router, including data input and output."
+    ref instance components:PayloadDataRouter [
+        component:hasPort PayloadDataRouter.Data_In
+        component:hasPort PayloadDataRouter.Data_Out
+    ]
+    instance PayloadDataRouter.Data_In : component:Port [ component:direction "In" ]
+    instance PayloadDataRouter.Data_Out : component:Port [ component:direction "Out" ]
+
     instance TelemetrySignal : component:Signal []
     instance CommandSignal : component:Signal []
     instance ElectricalPower : component:Energy []
@@ -44,6 +62,27 @@ description <https://fireforce6.github.io/mission-control/system-analysis/connec
         from FireSat.Command_In
         to Platform.Command_In
         component:transfers CommandSignal
+    ]
+
+    @dc:description "Connection from the FireSat command output to the Payload Controller command input, transferring command signals."
+    relation instance Conn_FireSatCmd_to_PayloadController : component:Connection [
+        from FireSat.Command_Out
+        to PayloadController.Command_In
+        component:transfers CommandSignal
+    ]
+
+    @dc:description "Connection from the Payload Controller health output to the Payload Data Router data input, transferring telemetry signals."
+    relation instance Conn_PayloadControllerHealth_to_DataRouter : component:Connection [
+        from PayloadController.Health_Out
+        to PayloadDataRouter.Data_In
+        component:transfers TelemetrySignal
+    ]
+
+    @dc:description "Connection from the Payload Data Router data output to the Platform data input, transferring telemetry signals."
+    relation instance Conn_PayloadDataRouter_to_Platform : component:Connection [
+        from PayloadDataRouter.Data_Out
+        to Platform.Data_In
+        component:transfers TelemetrySignal
     ]
 
     relation instance Conn_PlatformPower_to_Payload : component:Connection [
