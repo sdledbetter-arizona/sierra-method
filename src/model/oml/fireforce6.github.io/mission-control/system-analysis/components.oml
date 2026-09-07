@@ -11,6 +11,11 @@ description <https://fireforce6.github.io/mission-control/system-analysis/compon
         base:isContainedBy FireSat
     ]
 
+    instance PayloadController : component:Component [
+        base:description "Payload Command and Control Unit"
+        base:isContainedBy Payload
+    ]
+
     instance Platform : component:Component [
         base:description "Spacecraft Bus"
         base:isContainedBy FireSat
@@ -885,5 +890,25 @@ description <https://fireforce6.github.io/mission-control/system-analysis/compon
 
     instance FireSat : component:Component [
         base:description "FireSat Spacecraft"
+    ]
+
+    instance SensorCalibrationUnit : component:Component [
+        base:isContainedBy Payload
+        base:description "Thermal and Visible Sensor Calibration Unit"
+    ]
+
+    instance PayloadDataRouter : component:Component [
+        base:isContainedBy PayloadProcessor
+        base:description "Payload Data Routing Unit"
+    ]
+
+    instance PayloadPowerController : component:Component [
+        base:isContainedBy Payload
+        base:description "Payload Power Switching and Monitoring Unit"
+    ]
+
+    instance PayloadHealthMonitor : component:Component [
+        base:isContainedBy PayloadController
+        base:description "Paylload Fault Detection and Health Monitoring Unit"
     ]
 }
