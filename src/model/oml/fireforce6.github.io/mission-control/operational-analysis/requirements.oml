@@ -61,4 +61,22 @@ description <https://fireforce6.github.io/mission-control/operational-analysis/r
         base:category "L2"
         base:priority "Medium"
     ]
+
+    @dc:description "Requirement to ensure system resilience and data access during field operations."
+    instance R8 : stakeholder:Requirement [
+        base:description "Resilient Field Access"
+        base:expression "The system shall preserve access to essential fire-operation data during intermittent network connectivity."
+        stakeholder:isStatedBy stakeholders:FireFighter
+        base:category "L1"
+        base:priority "High"
+    ]
+
+    @dc:description "Requirement to provide system health and data-pipeline status information for fault diagnosis."
+    instance R9 : stakeholder:Requirement [
+        base:description "System Health Monitoring"
+        base:expression "The system shall provide system health and data-pipeline status information to support timely fault diagnosis."
+        stakeholder:isStatedBy stakeholders:SystemsEngineer
+        base:category "L2"
+        base:priority "Medium"
+    ]
 }
