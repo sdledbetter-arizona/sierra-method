@@ -41,10 +41,13 @@
     <td>4. <a href="./Operational%20Analysis/Activities.md">Define Operational Activities</a></td>
   </tr>
   <tr>
-    <td>5. <a href="./Operational%20Analysis/Processes.md">Define Operational Processes</a></td>
+    <td>5. <a href="./Operational%20Analysis/Alerts.md">Define Operational Alerts</a></td>
   </tr>
   <tr>
-    <td>6. <details style="display: inline-block; vertical-align: top;"><summary>Define Operational State Machines</summary>
+    <td>6. <a href="./Operational%20Analysis/Processes.md">Define Operational Processes</a></td>
+  </tr>
+  <tr>
+    <td>7. <details style="display: inline-block; vertical-align: top;"><summary>Define Operational State Machines</summary>
       <ul>
         <li><a href="./Operational%20Analysis/statemachines/StateMachine1.md">StateMachine1</a></li>
         <li><a href="./Operational%20Analysis/statemachines/StateMachine2.md">StateMachine2</a></li>
@@ -52,7 +55,7 @@
     </details></td>
   </tr>
   <tr>
-    <td>7. <details style="display: inline-block; vertical-align: top;"><summary>Define Operational Scenarios</summary>
+    <td>8. <details style="display: inline-block; vertical-align: top;"><summary>Define Operational Scenarios</summary>
       <ul>
         <li><a href="./Operational%20Analysis/scenarios/Scenario1.md">Scenario1</a></li>
         <li><a href="./Operational%20Analysis/scenarios/Scenario2.md">Scenario2</a></li>
@@ -61,13 +64,13 @@
     </details></td>
   </tr>
   <tr>
-    <td>8. <a href="./Operational%20Analysis/Requirements.md">Define Operational Requirements</a></td>
+    <td>9. <a href="./Operational%20Analysis/Requirements.md">Define Operational Requirements</a></td>
   </tr>
   <tr>
-    <td>9. <a href="./Operational%20Analysis/Dashboard.md">View Operations Dashboard</a></td>
+    <td>10. <a href="./Operational%20Analysis/Dashboard.md">View Operations Dashboard</a></td>
   </tr>
   <tr>
-    <td>10. <a href="./Operational%20Analysis/Dashboard2.md">View Operations Dashboard2 (WASM Notebook)</a></td>
+    <td>11. <a href="./Operational%20Analysis/Dashboard2.md">View Operations Dashboard2 (WASM Notebook)</a></td>
   </tr>
 </table>
 

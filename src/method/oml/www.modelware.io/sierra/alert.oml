@@ -1,0 +1,54 @@
+@dc:title "Alert vocabulary"
+@dc:description "Defines alert patterns for time-sensitive mission notifications."
+vocabulary <https://www.modelware.io/sierra/alert#> as alert {
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+    extends <https://www.modelware.io/sierra/base#> as base
+    extends <https://www.modelware.io/sierra/entity#> as entity1
+    extends <https://www.modelware.io/sierra/stakeholder#> as stakeholder
+
+    @dc:description "Severity of a mission alert."
+    scalar AlertSeverity [
+        oneOf "Informational", "Warning", "Critical"
+    ] = xsd:string
+
+    @dc:description "A mission alert that requires operational attention."
+    concept Alert < base:Element
+
+    @dc:description "The operational entity that originated the alert."
+    relation raisedBy [
+        from Alert
+        to entity1:Entity
+        reverse isRaisedBy
+        functional
+    ]
+
+    @dc:description "The stakeholder responsible for acting on the alert."
+    relation addressedTo [
+        from Alert
+        to stakeholder:Stakeholder
+        reverse isTargetedBy
+        functional
+    ]
+
+    @dc:description "The operational item or object associated with the alert."
+    relation affects [
+        from Alert
+        to base:Item
+        reverse isAffectedBy
+    ]
+
+    @dc:description "The urgency of the alert."
+    scalar property severity [
+        domain Alert
+        range AlertSeverity
+        functional
+    ]
+
+    @dc:description "The time in seconds allowed before acknowledgement is required."
+    scalar property acknowledgementDeadline [
+        domain Alert
+        range xsd:integer
+        functional
+    ]
+}

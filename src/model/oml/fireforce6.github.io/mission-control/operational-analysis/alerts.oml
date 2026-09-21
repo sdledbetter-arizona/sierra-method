@@ -1,0 +1,37 @@
+@dc:title "Mission Control Alerts"
+@dc:description "Operational alert definitions for the Mission Control system."
+description <https://fireforce6.github.io/mission-control/operational-analysis/alerts#> as alerts {
+    uses <http://purl.org/dc/elements/1.1/> as dc
+    uses <https://www.modelware.io/sierra/base#> as base
+    uses <https://www.modelware.io/sierra/alert#> as alert
+    extends <https://fireforce6.github.io/mission-control/context-analysis/stakeholders#> as stakeholders
+    extends <https://fireforce6.github.io/mission-control/operational-analysis/entities#> as entities
+    extends <https://fireforce6.github.io/mission-control/operational-analysis/items#> as items
+
+    instance CriticalFireAlert : alert:Alert [
+        base:description "FireCloud reports a critical fire boundary breach near sector 3."
+        alert:raisedBy entities:FireCloud
+        alert:addressedTo stakeholders:Operator
+        alert:affects items:alert
+        alert:severity "Critical"
+        alert:acknowledgementDeadline 60
+    ]
+
+    instance DroneBatteryWarning : alert:Alert [
+        base:description "AI Fire Warden detects a low-battery condition on a drone gap patrol."
+        alert:raisedBy entities:AIFireWarden
+        alert:addressedTo stakeholders:SafetyOfficer
+        alert:affects items:status
+        alert:severity "Warning"
+        alert:acknowledgementDeadline 300
+    ]
+
+    instance TelemetryDegradation : alert:Alert [
+        base:description "NetworkInterface reports intermittent telemetry loss during wildfire updates."
+        alert:raisedBy entities:NetworkInterface
+        alert:addressedTo stakeholders:SystemsEngineer
+        alert:affects items:telemetry
+        alert:severity "Critical"
+        alert:acknowledgementDeadline 200
+    ]
+}
