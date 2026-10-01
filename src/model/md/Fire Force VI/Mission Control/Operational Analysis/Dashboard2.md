@@ -221,3 +221,11 @@ display(clientWidget(f'<label>Category: <select>{options}</select></label>', ren
 display('<div id="stk-table"></div>')
 render("")
 ```
+
+## Reused Capability Coverage
+
+This second page invokes the same coverage template used by the analysis dashboard.
+
+```compose
+template: https://www.modelware.io/sierra/operational-analysis/capability-coverage
+```
