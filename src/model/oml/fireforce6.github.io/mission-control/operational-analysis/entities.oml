@@ -6,6 +6,7 @@ description <https://fireforce6.github.io/mission-control/operational-analysis/e
     uses <https://www.modelware.io/sierra/entity#> as ent
     extends <https://fireforce6.github.io/mission-control/context-analysis/stakeholders#> as stakeholders
     extends <https://fireforce6.github.io/mission-control/operational-analysis/capabilities#> as capabilities
+    uses <http://www.w3.org/2000/01/rdf-schema#> as rdfs
 
     instance DashboardSystem : ent:Entity [
         base:description "The Mission Control Dashboard software system."
@@ -21,9 +22,7 @@ description <https://fireforce6.github.io/mission-control/operational-analysis/e
 
     instance FireCloud : ent:Entity [
         base:description "External service providing fire, drone, and satellite telemetry."
-        ent:hasCapability capabilities:C2
-        ent:hasCapability capabilities:C3
-        ent:hasCapability capabilities:C8
+        ent:hasCapability capabilities:C8, capabilities:C2, capabilities:C3
     ]
 
     instance AIFireWarden : ent:Entity [
@@ -50,5 +49,9 @@ description <https://fireforce6.github.io/mission-control/operational-analysis/e
     ref instance stakeholders:SafetyOfficer : ent:Actor [
         base:description "Ensures compliance with safety protocols during fire management operations."
         ent:hasCapability capabilities:C7
+    ]
+
+    instance NetworkInterface_Copy : ent:Entity [
+        base:description "Handles data synchronization between dashboard and cloud services."
     ]
 }

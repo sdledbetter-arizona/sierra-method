@@ -35,4 +35,10 @@ description <https://fireforce6.github.io/mission-control/context-analysis/stake
         base:description "Ensures alerts, communications, and responses comply with safety protocols."
         base:category "Support"
     ]
+
+    @rdfs:label "Systems Engineer Copy"
+    instance SystemsEngineer_Copy : stakeholder:Stakeholder [
+        base:description "Responsible for ensuring system reliability and integration with Fire Cloud and AI Warden."
+        base:category "Support"
+    ]
 }

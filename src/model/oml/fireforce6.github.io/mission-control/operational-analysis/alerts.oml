@@ -34,4 +34,13 @@ description <https://fireforce6.github.io/mission-control/operational-analysis/a
         alert:severity "Critical"
         alert:acknowledgementDeadline 200
     ]
+
+    instance EmergencyEscalationAlert : alert:Alert [
+        base:description "FireCloud indicates a rapid escalation in fire spread and requires immediate command-center coordination."
+        alert:raisedBy entities:FireCloud
+        alert:addressedTo stakeholders:CommandCenter
+        alert:affects items:alert
+        alert:severity "Critical"
+        alert:acknowledgementDeadline 30
+    ]
 }

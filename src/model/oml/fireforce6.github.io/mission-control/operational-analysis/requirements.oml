@@ -79,4 +79,13 @@ description <https://fireforce6.github.io/mission-control/operational-analysis/r
         base:category "L2"
         base:priority "Medium"
     ]
+
+    @dc:description "Priority-1 requirement for emergency response coordination during the most severe incidents."
+    instance R10 : stakeholder:Requirement [
+        base:description "Priority-1 Emergency Response Coordination"
+        base:expression "The system shall prioritize emergency response coordination and rapid escalation for the highest-risk fire incidents."
+        stakeholder:isStatedBy stakeholders:CommandCenter
+        base:category "L1"
+        base:priority "High"
+    ]
 }

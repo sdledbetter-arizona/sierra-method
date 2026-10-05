@@ -35,4 +35,11 @@ description <https://fireforce6.github.io/mission-control/context-analysis/objec
         mission:isDerivedFrom concerns:SafetyOfficerNeeds
         mission:isDerivedFrom concerns:CommandCenterNeeds
     ]
+
+    instance O4_Copy : mission:Objective [
+        base:description "Ensure Safe and Controlled Decision Support."
+        mission:isPursuedBy missions:MissionControl
+        mission:isDerivedFrom concerns:SafetyOfficerNeeds
+        mission:isDerivedFrom concerns:CommandCenterNeeds
+    ]
 }
